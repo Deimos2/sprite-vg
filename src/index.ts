@@ -4,6 +4,7 @@ import path from 'path';  // Import path
 const app = express();
 
 app.use(express.static('public'));
+app.use('/dist/spritevg', express.static('dist/spritevg'));
 
 app.get('/', (_: Request, res: Response) => {
   res.sendFile(path.join(__dirname, '../public', 'index.html'));

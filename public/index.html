@@ -3,14 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SVG Image Processor</title>
+  <title>SpriteVG</title>
   <link rel="stylesheet" href="style.css">
+
+  <!-- Load OpenCV first -->
+  <script async src="https://docs.opencv.org/4.x/opencv.js"></script>
+
+  <!-- Load the client script as a module -->
+  <script type="module" src="/dist/spritevg/main.js" defer></script>
 </head>
 <body>
-  <h1>SVG and Image Filter Processor</h1>
+  <h1>SpriteVG</h1>
   <canvas id="imageCanvas"></canvas>
   <svg id="svgContainer" width="400" height="400"></svg>
   <div id="tweakpane"></div>
-  <script src="script.js" defer></script>
 </body>
 </html>

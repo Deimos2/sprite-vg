@@ -1,0 +1,14 @@
+{
+    "compilerOptions": {
+      "target": "es6",
+      "module": "es6",                // Compile as ES modules for browser compatibility
+      "moduleResolution": "node",
+      "outDir": "./dist/spritevg",      // Place client code in dist/client
+      "strict": true,
+      "esModuleInterop": true,
+      "forceConsistentCasingInFileNames": true,
+      "skipLibCheck": true
+    },
+    "include": ["src/spritevg/*.ts"], // Only include client-side TypeScript files
+    "exclude": ["node_modules"]
+  }
