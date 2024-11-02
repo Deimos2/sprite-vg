@@ -9,5 +9,13 @@
       "dbaeumer.vscode-eslint",
       "esbenp.prettier-vscode"
     ],
+    "mounts": [
+      "source=${localEnv:HOME}/.gitconfig,target=/root/.gitconfig,type=bind",
+      "source=${localEnv:HOME}/.ssh/id_rsa,target=/root/.ssh/id_rsa,type=bind"
+
+    ],
+    "remoteEnv": {
+      "GIT_SSH_COMMAND": "ssh -i /root/.ssh/id_rsa -o StrictHostKeyChecking=no"
+    },
     "postCreateCommand": "yarn install && yarn dev"
   }
