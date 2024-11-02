@@ -14,5 +14,14 @@
   <canvas id="imageCanvas"></canvas>
   <svg id="svgContainer" width="400" height="400"></svg>
   <div id="tweakpane"></div>
+  <script>
+    window.onload = () => {
+      if (window.SpriteVG) {
+        window.SpriteVG();
+      } else {
+        console.error("SpriteVG is not defined. Check script loading order.");
+      }
+    };
+  </script>
 </body>
 </html>

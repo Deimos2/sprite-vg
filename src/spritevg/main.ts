@@ -3,16 +3,27 @@ import { SVG } from '@svgdotjs/svg.js';
 
 declare const cv: any;
 
-// Set up Tweakpane for controlling parameters
-const setupTweakpane = () => {
-  const pane = new Pane({ container: document.getElementById('tweakpane') as HTMLElement }) as any;
-  
-  const params = { threshold: 100 };
-  pane.addInput(params, 'threshold', { min: 0, max: 255 });
 
-  pane.on('change', (value: any) => {
-    applyFilter(params.threshold);
-  });
+const setupTweakpane = () => {
+  const container = document.getElementById('tweakpane');
+  if (!container) {
+    console.error('Tweakpane container not found');
+    return;
+  }
+
+  // Initialize the pane instance
+  const pane = new Pane({ container });
+
+  // Test adding an input control to verify functionality
+  const params = { threshold: 100 };
+  try {
+    pane.addBinding(params, 'threshold', { min: 0, max: 255 });
+    pane.on('change', () => {
+      console.log('Threshold changed:', params.threshold);
+    });
+  } catch (error) {
+    console.error('Error adding input to Tweakpane:', error);
+  }
 };
 
 const applyFilter = (threshold: number) => {
