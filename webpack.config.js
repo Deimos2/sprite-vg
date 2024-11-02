@@ -1,14 +1,18 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin'); // Import the plugin
+
+console.log('Resolving copy-webpack-plugin...');
+console.log(require.resolve('copy-webpack-plugin'));
 
 module.exports = {
-  entry: './src/spritevg/main.ts', // Entry point to your TypeScript file
+  entry: './src/spritevg/main.ts',
   output: {
-    filename: 'bundle.js', // The output file
+    filename: 'bundle.js',
     path: path.resolve(__dirname, 'dist/spritevg'),
   },
   resolve: {
-    extensions: ['.ts', '.js'], // Resolve both .ts and .js files
+    extensions: ['.ts', '.js'],
   },
   module: {
     rules: [
@@ -21,7 +25,12 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './public/index.html', // Template HTML file
+      template: './public/index.html',
+    }),
+    new CopyWebpackPlugin({
+      patterns: [
+        { from: 'public/style.css', to: 'style.css' }, // Copy `style.css` to `dist/spritevg`
+      ],
     }),
   ],
   mode: 'development',

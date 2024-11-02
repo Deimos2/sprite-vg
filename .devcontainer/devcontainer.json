@@ -10,6 +10,7 @@
       "esbenp.prettier-vscode"
     ],
     "mounts": [
+      "source=sprite-vg-node-modules,target=/usr/src/app/node_modules,type=volume",
       "source=${localEnv:HOME}/.gitconfig,target=/root/.gitconfig,type=bind",
       "source=${localEnv:HOME}/.ssh/id_rsa,target=/root/.ssh/id_rsa,type=bind"
 
