@@ -8,12 +8,6 @@
 
   <!-- Load OpenCV first -->
   <script async src="https://docs.opencv.org/4.x/opencv.js"></script>
-</head>
-<body>
-  <h1>SpriteVG</h1>
-  <canvas id="imageCanvas"></canvas>
-  <svg id="svgContainer" width="400" height="400"></svg>
-  <div id="tweakpane"></div>
   <script>
     window.onload = () => {
       if (window.SpriteVG) {
@@ -23,5 +17,30 @@
       }
     };
   </script>
+</head>
+<body>
+  <h1>SpriteVG</h1>
+  <div class="grid-container">
+    <!-- Top Left: Image Upload and Display Pane -->
+    <div id="imageUploadPane" class="pane">
+      <input type="file" id="fileInput" accept="image/*">
+      <canvas id="imageCanvas" width="200" height="200"></canvas>
+    </div>
+
+    <!-- Top Right: Filter Controls Pane -->
+    <div id="filterControlsPane" class="pane">
+      <div id="tweakpane"></div> <!-- Tweakpane controls for image filters -->
+    </div>
+
+    <!-- Bottom Left: SVG Display Pane -->
+    <div id="svgDisplayPane" class="pane">
+      <svg id="svgContainer" width="400" height="400"></svg>
+    </div>
+
+    <!-- Bottom Right: SVG Animation and Editing Controls Pane -->
+    <div id="svgEditPane" class="pane">
+      <div id="animationControls">Animation and Editing Controls here</div>
+    </div>
+  </div>
 </body>
 </html>
